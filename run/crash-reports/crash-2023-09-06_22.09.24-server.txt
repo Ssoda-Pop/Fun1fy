@@ -1,0 +1,153 @@
+---- Minecraft Crash Report ----
+// Why did you do that?
+
+Time: 2023-09-06 22:09:24
+Description: Ticking entity
+
+java.lang.NullPointerException: Cannot read field "x" because the return value of "net.minecraft.world.damagesource.DamageSource.sourcePositionRaw()" is null
+	at pop.zakichel.funify.entity.MolotovEntity.hurt(MolotovEntity.java:42) ~[%23194!/:?] {re:classloading}
+	at net.minecraft.world.entity.Entity.baseTick(Entity.java:481) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.Entity.tick(Entity.java:441) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.projectile.Projectile.tick(Projectile.java:107) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.projectile.AbstractHurtingProjectile.tick(AbstractHurtingProjectile.java:68) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:702) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:516) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$6(ServerLevel.java:346) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:326) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:925) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:846) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:681) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at pop.zakichel.funify.entity.MolotovEntity.hurt(MolotovEntity.java:42) ~[%23194!/:?] {re:classloading}
+	at net.minecraft.world.entity.Entity.baseTick(Entity.java:481) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.Entity.tick(Entity.java:441) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.projectile.Projectile.tick(Projectile.java:107) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.entity.projectile.AbstractHurtingProjectile.tick(AbstractHurtingProjectile.java:68) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:702) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:516) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$6(ServerLevel.java:346) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:326) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+-- Entity being ticked --
+Details:
+	Entity Type: funify:molotov (pop.zakichel.funify.entity.MolotovEntity)
+	Entity ID: 4
+	Entity Name: entity.funify.molotov
+	Entity's Exact location: -1.00, -0.05, -1.12
+	Entity's Block location: World: (-2,-1,-2), Section: (at 14,15,14 in -1,-1,-1; chunk contains blocks -16,-64,-16 to -1,319,-1), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,-64,-512 to -1,319,-1)
+	Entity's Momentum: -0.95, -0.05, -1.07
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:516) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$6(ServerLevel.java:346) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:326) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:925) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:846) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:681) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 0 total; []
+	Chunk stats: 2209
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,-60,0), Section: (at 0,4,0 in 0,-4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 15623 game time, 15623 day time
+	Level name: New World
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 16659 (now: false), thunder time: 150512 (now: false)
+	Known server brands: forge
+	Removed feature flags: 
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:925) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:846) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:681) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20
+	Minecraft Version ID: 1.20
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 19.0.2, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 473929336 bytes (451 MiB) / 1264582656 bytes (1206 MiB) up to 2124414976 bytes (2026 MiB)
+	CPUs: 4
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i3-5005U CPU @ 2.00GHz
+	Identifier: Intel64 Family 6 Model 61 Stepping 4
+	Microarchitecture: Broadwell (Client)
+	Frequency (GHz): 2.00
+	Number of physical packages: 1
+	Number of physical CPUs: 2
+	Number of logical CPUs: 4
+	Graphics card #0 name: Intel(R) HD Graphics 5500
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x1616
+	Graphics card #0 versionInfo: DriverVersion=20.19.15.5126
+	Memory slot #0 capacity (MB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 1.60
+	Memory slot #0 type: DDR3
+	Memory slot #1 capacity (MB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 1.60
+	Memory slot #1 type: DDR3
+	Virtual memory max (MB): 17405.77
+	Virtual memory used (MB): 12171.85
+	Swap memory total (MB): 9302.44
+	Swap memory used (MB): 3182.63
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 0 / 8; []
+	Data Packs: vanilla, mod:forge, mod:funify (incompatible)
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.3.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08|Minecraft                     |minecraft                     |1.20                |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |46.0.14             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Funify                        |funify                        |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 341df85d-1fd6-41ca-880c-1f2e0e9d7ba3
+	FML: 46.0
+	Forge: net.minecraftforge:46.0.14

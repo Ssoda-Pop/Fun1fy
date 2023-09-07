@@ -1,0 +1,130 @@
+---- Minecraft Crash Report ----
+// I let you down. Sorry :(
+
+Time: 2023-09-07 09:52:55
+Description: Load world
+
+java.net.ConnectException: connection refused: local:E:721e4fbb
+	at io.netty.channel.local.LocalChannel$LocalUnsafe.connect(LocalChannel.java:490) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.connect(DefaultChannelPipeline.java:1342) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.channel.AbstractChannelHandlerContext.invokeConnect(AbstractChannelHandlerContext.java:548) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:533) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.channel.AbstractChannelHandlerContext.connect(AbstractChannelHandlerContext.java:517) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.channel.DefaultChannelPipeline.connect(DefaultChannelPipeline.java:978) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.channel.AbstractChannel.connect(AbstractChannel.java:265) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.bootstrap.Bootstrap$3.run(Bootstrap.java:250) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.util.concurrent.AbstractEventExecutor.runTask(AbstractEventExecutor.java:174) ~[netty-common-4.1.82.Final.jar%23149!/:4.1.82.Final] {}
+	at io.netty.channel.DefaultEventLoop.run(DefaultEventLoop.java:54) ~[netty-transport-4.1.82.Final.jar%23146!/:4.1.82.Final] {}
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:997) ~[netty-common-4.1.82.Final.jar%23149!/:4.1.82.Final] {}
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.82.Final.jar%23149!/:4.1.82.Final] {}
+	at java.lang.Thread.run(Thread.java:1589) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.client.ResourceLoadStateTracker.fillCrashReport(ResourceLoadStateTracker.java:51) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar%23189!/:?] {re:classloading,pl:runtimedistcleaner:A}
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla, mod_resources
+Stacktrace:
+	at net.minecraft.client.ResourceLoadStateTracker.fillCrashReport(ResourceLoadStateTracker.java:51) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2388) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.lambda$delayCrash$22(Minecraft.java:845) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:713) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:218) ~[forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08.14-1.20-recomp.jar:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:578) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:25) ~[fmlloader-1.20-46.0.14.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20
+	Minecraft Version ID: 1.20
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 19.0.2, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 558120512 bytes (532 MiB) / 1278214144 bytes (1219 MiB) up to 2124414976 bytes (2026 MiB)
+	CPUs: 4
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i3-5005U CPU @ 2.00GHz
+	Identifier: Intel64 Family 6 Model 61 Stepping 4
+	Microarchitecture: Broadwell (Client)
+	Frequency (GHz): 2.00
+	Number of physical packages: 1
+	Number of physical CPUs: 2
+	Number of logical CPUs: 4
+	Graphics card #0 name: Intel(R) HD Graphics 5500
+	Graphics card #0 vendor: Intel Corporation (0x8086)
+	Graphics card #0 VRAM (MB): 1024.00
+	Graphics card #0 deviceId: 0x1616
+	Graphics card #0 versionInfo: DriverVersion=20.19.15.5126
+	Memory slot #0 capacity (MB): 4096.00
+	Memory slot #0 clockSpeed (GHz): 1.60
+	Memory slot #0 type: DDR3
+	Memory slot #1 capacity (MB): 4096.00
+	Memory slot #1 clockSpeed (GHz): 1.60
+	Memory slot #1 type: DDR3
+	Virtual memory max (MB): 17405.77
+	Virtual memory used (MB): 12701.54
+	Swap memory total (MB): 9302.44
+	Swap memory used (MB): 3070.15
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: Intel(R) HD Graphics 5500 GL version 3.2.0 - Build 20.19.15.5126, Intel
+	Window size: 854x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fast
+	Resource Packs: 
+	Current Language: en_us
+	CPU: 4x Intel(R) Core(TM) i3-5005U CPU @ 2.00GHz
+	Server Running: true
+	Player Count: 0 / 8; []
+	Data Packs: vanilla, mod:forge, mod:funify (incompatible)
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.3.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20-46.0.14.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20-46.0.14_mapped_parchment_1.19.2-2022.08|Minecraft                     |minecraft                     |1.20                |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |46.0.14             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Funify                        |funify                        |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: a456d7c7-ab94-4133-8356-34d4245fb0bc
+	FML: 46.0
+	Forge: net.minecraftforge:46.0.14
