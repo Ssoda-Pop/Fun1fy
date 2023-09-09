@@ -1,6 +1,7 @@
 package pop.zakichel.funify;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+import pop.zakichel.funify.client.render.MolotovRenderer;
 import pop.zakichel.funify.entity.FunEntities;
 import pop.zakichel.funify.item.FunItems;
 
@@ -55,6 +57,7 @@ public class Funify
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(FunEntities.THROWN_MOLOTOV.get(), MolotovRenderer::new);
 
         }
     }

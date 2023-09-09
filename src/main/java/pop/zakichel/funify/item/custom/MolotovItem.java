@@ -25,8 +25,10 @@ public class MolotovItem extends Item {
 
         if (!pLevel.isClientSide) {
             MolotovEntity molly = new MolotovEntity(FunEntities.THROWN_MOLOTOV.get(),pLevel);
-            molly.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0, 1.5F, 0.0F);
+            molly.setPos(pPlayer.getX(), pPlayer.getY(), pPlayer.getZ());
+            molly.setNoGravity(false);
 
+            molly.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0, 1.5F, 1.0F);
             pLevel.addFreshEntity(molly);
         }
         pPlayer.awardStat(Stats.ITEM_USED.get(this));
